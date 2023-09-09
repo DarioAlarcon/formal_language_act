@@ -34,6 +34,20 @@ def concatenar_lenguajes(lenguaje_1, lenguaje_2):
         i1 = i1+1
     return lenguaje_concatenado_list
 
+
+def potencia_lenguaje(lenguaje):
+    lenguaje_iterador = lenguaje
+    iteraciones = 3
+    cantidad_iteraciones = 0
+    while cantidad_iteraciones<iteraciones:
+        lenguaje_iterador= concatenar_lenguajes(lenguaje_1=lenguaje, lenguaje_2= lenguaje_iterador)
+        cantidad_iteraciones+=1
+    print(lenguaje_iterador)
+
+
+
+
+
 def main():
     Alphabet1 = set(map(str, input("Ingrese la lista de simbolos de su primer alfabeto separados por espacios: ").split()))
     Alphabet2 = set(map(str, input("Ingrese la lista de simbolos de su segundo alfabeto separados por espacios: ").split()))
@@ -54,5 +68,6 @@ def main():
     print("lenguaje concarena")
     print(concatenar_lenguajes(Alphabet4, Alphabet5))
     print(len(concatenar_lenguajes(Alphabet4, Alphabet5)))
+    print(potencia_lenguaje(list(Alphabet1)))
 
 main()
