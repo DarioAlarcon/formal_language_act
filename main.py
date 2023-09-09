@@ -45,6 +45,11 @@ def potencia_lenguaje(lenguaje):
     print(lenguaje_iterador)
 
 
+def calcular_inversa_cadenas(conjunto):
+    inversa = set()
+    for cadena in conjunto:
+        inversa.add(cadena[::-1])
+    return inversa
 
 
 
@@ -69,5 +74,6 @@ def main():
     print(concatenar_lenguajes(Alphabet4, Alphabet5))
     print(len(concatenar_lenguajes(Alphabet4, Alphabet5)))
     print(potencia_lenguaje(list(Alphabet1)))
+    print(calcular_inversa_cadenas(Alphabet1))
 
 main()
