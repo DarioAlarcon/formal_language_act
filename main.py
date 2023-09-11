@@ -1,55 +1,55 @@
 import random
 
-def mezclar_elementos(entrada):
-    nuevo_set = set()
-    iterador_set = entrada
-    entrada_lista = list(entrada)
+def generate_words(alphabet, length_of_language):
+    language = set()
+    iterador_set = alphabet
+    alphabet_list = list(alphabet)
     iterador_set_list = list(iterador_set)
 
-    while len(nuevo_set) < 20:
-        elementos_aleatorios1 = random.choice(entrada_lista)
-        c = 0
-        lenn = len(iterador_set_list)
-        while c < lenn and len(nuevo_set) < 20:
-            nuevo_elemento = elementos_aleatorios1[0] + iterador_set_list[c]
-            if nuevo_elemento not in nuevo_set:
-                nuevo_set.add(nuevo_elemento)
-                iterador_set_list.append(nuevo_elemento)
-            c = c+1
+    while len(language) < length_of_language:
+        random_element = random.choice(alphabet_list)
+        print(random_element)
+        iterador_set_list_runner = 0
+        length_iterator_set_list = len(iterador_set_list)
+        while iterador_set_list_runner < length_iterator_set_list and len(language) < length_of_language:
+            new_word = random_element + iterador_set_list[iterador_set_list_runner]
+            if new_word not in language:
+                language.add(new_word)
+                iterador_set_list.append(new_word)
+            iterador_set_list_runner = iterador_set_list_runner+1
 
-    return nuevo_set
+    return language
 
-def concatenar_lenguajes(lenguaje_1, lenguaje_2):
-    lenguaje_concatenado = set()
-    lenguaje_concatenado_list = list(lenguaje_concatenado)
-    lenguaje_1_lista = list(lenguaje_1)
-    lenguaje_2_lista = list(lenguaje_2)
-    i1 = 0
-    while i1 < len(lenguaje_1_lista):
-        i2 = 0
-        while i2< len(lenguaje_2_lista):
-            nuevo_elemento= lenguaje_1_lista[i1]+lenguaje_2_lista[i2]
-            lenguaje_concatenado_list.append(nuevo_elemento)
-            i2 = i2+1
-        i1 = i1+1
-    return lenguaje_concatenado_list
-
-
-def potencia_lenguaje(lenguaje):
-    lenguaje_iterador = lenguaje
-    iteraciones = 3
-    cantidad_iteraciones = 0
-    while cantidad_iteraciones<iteraciones:
-        lenguaje_iterador= concatenar_lenguajes(lenguaje_1=lenguaje, lenguaje_2= lenguaje_iterador)
-        cantidad_iteraciones+=1
-    print(lenguaje_iterador)
+def concatenate_languages(language_1, language_2):
+    language_concatenated = set()
+    language_concatenated_list = list(language_concatenated)
+    language_1_list = list(language_1)
+    language_2_list = list(language_2)
+    iterator_language_1 = 0
+    while iterator_language_1 < len(language_1_list):
+        iterator_language_2 = 0
+        while iterator_language_2< len(language_2_list):
+            new_concatenated_word = language_1_list[iterator_language_1]+language_2_list[iterator_language_2]
+            language_concatenated_list.append(new_concatenated_word)
+            iterator_language_2 = iterator_language_2+1
+        iterator_language_1 = iterator_language_1+1
+    return language_concatenated_list
 
 
-def calcular_inversa_cadenas(conjunto):
-    inversa = set()
-    for cadena in conjunto:
-        inversa.add(cadena[::-1])
-    return inversa
+def power_of_language(language, iterations):
+    language_final = language
+    numbers_of_iterations = 1
+    while numbers_of_iterations<iterations:
+        language_final= concatenate_languages(language, language_final)
+        numbers_of_iterations+=1
+    print(language_final)
+
+
+def calculate_reverse(language):
+    reverse = set()
+    for word in language:
+        reverse.add(word[::-1])
+    return reverse
 
 
 
@@ -64,16 +64,18 @@ def main():
     print(Alphabet3)
     Alphabet3 = Alphabet1 - Alphabet2
     print(Alphabet3)
-    Alphabet4 = mezclar_elementos(Alphabet1)
+    Alphabet4 = generate_words(Alphabet1, 6)
     print("lenguaje 1")
     print(Alphabet4)
-    Alphabet5 = mezclar_elementos(Alphabet2)
+    print(len(Alphabet4))
+    Alphabet5 = generate_words(Alphabet2, 8)
     print("lenguaje 2")
     print(Alphabet5)
+    print(len(Alphabet5))
     print("lenguaje concarena")
-    print(concatenar_lenguajes(Alphabet4, Alphabet5))
-    print(len(concatenar_lenguajes(Alphabet4, Alphabet5)))
-    print(potencia_lenguaje(list(Alphabet1)))
-    print(calcular_inversa_cadenas(Alphabet1))
+    print(concatenate_languages(Alphabet4, Alphabet5))
+    print(len(concatenate_languages(Alphabet4, Alphabet5)))
+    print(power_of_language(list(Alphabet1), 2))
+    print(calculate_reverse(Alphabet1))
 
 main()
