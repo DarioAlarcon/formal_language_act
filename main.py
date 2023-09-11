@@ -51,31 +51,21 @@ def calculate_reverse(language):
         reverse.add(word[::-1])
     return reverse
 
+def union(set_1, set_2):
+    set_final = set_1 | set_2
+    return set_final
 
+def intersection(set_1, set_2):
+    set_final = set_1 & set_2
+    return set_final
+
+def diference(set_1, set_2):
+    set_final = set_1 - set_2
+    return set_final
 
 def main():
     Alphabet1 = set(map(str, input("Ingrese la lista de simbolos de su primer alfabeto separados por espacios: ").split()))
     Alphabet2 = set(map(str, input("Ingrese la lista de simbolos de su segundo alfabeto separados por espacios: ").split()))
     print(Alphabet1)
     print(Alphabet2)
-    Alphabet3 = Alphabet1 | Alphabet2
-    print(Alphabet3)
-    Alphabet3 = Alphabet1 & Alphabet2
-    print(Alphabet3)
-    Alphabet3 = Alphabet1 - Alphabet2
-    print(Alphabet3)
-    Alphabet4 = generate_words(Alphabet1, 6)
-    print("lenguaje 1")
-    print(Alphabet4)
-    print(len(Alphabet4))
-    Alphabet5 = generate_words(Alphabet2, 8)
-    print("lenguaje 2")
-    print(Alphabet5)
-    print(len(Alphabet5))
-    print("lenguaje concarena")
-    print(concatenate_languages(Alphabet4, Alphabet5))
-    print(len(concatenate_languages(Alphabet4, Alphabet5)))
-    print(power_of_language(list(Alphabet1), 2))
-    print(calculate_reverse(Alphabet1))
-
 main()
