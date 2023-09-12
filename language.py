@@ -1,4 +1,4 @@
-class Alphabet:
+class Language:
     def __init__(self, words):
         self.words = words
 
