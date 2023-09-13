@@ -1,5 +1,5 @@
 import random
-
+from funtions import void_word
 
 class Alphabet:
     def __init__(self, symbols):
@@ -19,7 +19,7 @@ class Alphabet:
             iterador_set_list_runner = 0
             length_iterator_set_list = len(iterador_set_list)
             while iterador_set_list_runner < length_iterator_set_list and len(language) < length_of_language:
-                new_word = random_element + iterador_set_list[iterador_set_list_runner]
+                new_word = void_word(random_element,iterador_set_list[iterador_set_list_runner])
                 if new_word not in language:
                     language.add(new_word)
                     iterador_set_list.append(new_word)

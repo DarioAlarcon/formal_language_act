@@ -21,3 +21,4 @@ class spanish_dialogs:
     result_power_language_message="la potencia del lenguaje 1 es: "
     result_reverse_language_message="la inversa del leguaje 1 es: "
     result_cardinality_language_message= "la cardinalidad del lenguaje 1 es: "
+    result_concatenation_language_message= "la concatenacion de lenguajes es: "
